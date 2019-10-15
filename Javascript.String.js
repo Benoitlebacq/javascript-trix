@@ -48,3 +48,12 @@ const words = (str, pattern = /[^a-zA-Z-]+/) =>
   str.split(pattern).filter(Boolean);
 words("I love javaScript!!"); // ["I", "love", "javaScript"]
 words("python, javaScript & coffee"); // ["python", "javaScript", "coffee"]
+
+// camelCase une string
+const camelize = str => {
+  return str
+    .replace(/(?:^\w|[A-Z]|\b\w)/g, (word, index) => {
+      return index == 0 ? word.toLowerCase() : word.toUpperCase();
+    })
+    .replace(/\s+/g, "");
+};
